@@ -1,6 +1,6 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
-import { IndexRoute } from 'react-router';
+//import { IndexRoute } from 'react-router';
 
 import MainLayout from './components/layout/MainLayout/MainLayout';
 //routes
