@@ -3,10 +3,6 @@ import { PropTypes } from 'prop-types';
 
 class PostsCounter extends React.Component {
 
-  componentDidMount() {
-    const { loadPosts } = this.props;
-  }
-
   render() {
   	const { postsLength } = this.props;
 
