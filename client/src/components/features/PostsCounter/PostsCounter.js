@@ -9,8 +9,8 @@ class PostsCounter extends React.Component {
   	if (postsLength === 0) {
   		return( <div>no posts</div> )
   	} else {
-		return( <div>Posts amount: {postsLength}</div> )
-	}
+		  return( <div>Posts amount: {postsLength}</div> )
+    }
   }
 };
 
