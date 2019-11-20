@@ -1,8 +1,10 @@
 import React from 'react';
 
-const SinglePost = () => (
+import SinglePostContainer from '../../features/SinglePost/SinglePostContainer';
+
+const SinglePost = props => (
 	<div>
-		<h1>Let me see you closer</h1>
+		<SinglePostContainer id={props.match.params.id} />
 	</div>
 );
 

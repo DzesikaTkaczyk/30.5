@@ -29,6 +29,6 @@ class App extends React.Component {
       </MainLayout>
     );
   }
-}//extact- all address characters must be the same like in link
+}
 
 export default App;
