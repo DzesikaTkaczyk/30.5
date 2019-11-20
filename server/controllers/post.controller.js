@@ -12,7 +12,7 @@ exports.getPosts = async (req, res) => {
 
 exports.getSinglePost = async (req, res) => {
 	try {
-		res.status(200).json(await Post.findOne({ id: req.params.id }));
+		res.status(200).json(await Post.findOne());
 	} catch(err) {
 		res.status(500).json(err);
 	}
