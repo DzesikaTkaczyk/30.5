@@ -9,7 +9,7 @@ import PageTitle from '../../common/PageTitle/PageTitle';
 class SinglePost extends React.Component {
   componentDidMount() {
     const { loadPost, id } = this.props;
-    loadPost();
+    loadPost(id);
   }
 
   render() {
