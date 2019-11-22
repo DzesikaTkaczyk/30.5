@@ -8,7 +8,7 @@ import HtmlBox from '../../common/HtmlBox/HtmlBox';
 import Button from '../../common/Button/Button';
 import SmallTitle from '../../common/SmallTitle/SmallTitle';
 
-const PostSummary = ({ id, title, content, author }) => (
+const PostSummary = ({ id, title, author, content }) => (
   <article className="post-summary">
     <SmallTitle>{title}</SmallTitle>
     <p>Author: {author}</p>

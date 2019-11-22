@@ -24,7 +24,7 @@ class SinglePost extends React.Component {
         {pending === false && success === true && post !== null && (
           <article>
             <PageTitle>{post.title}</PageTitle>
-            <p>Author: {post.author}</p>
+            <p>Author: {post.author} </p>
             <HtmlBox>{post.content}</HtmlBox>
           </article>)
         }
