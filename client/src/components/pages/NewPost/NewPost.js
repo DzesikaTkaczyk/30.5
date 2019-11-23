@@ -1,12 +1,12 @@
 import React from 'react';
 
 import PageTitle from '../../common/PageTitle/PageTitle';
-import PostForm from '../../features/PostForm/PostForm';
+import PostFormContainer from '../../features/PostForm/PostFormContainer';
 
 const NewPost = () => (
 	<div>
 		<PageTitle>Add post</PageTitle>
-		<PostForm />
+		<PostFormContainer />
 	</div>
 );
 
