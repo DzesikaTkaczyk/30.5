@@ -15,7 +15,7 @@ import './PostForm.scss';
 
 class PostForm extends React.Component {
   componentDidMount() {
-    const { resetRequest } = this.props;
+    const { resetRequest} = this.props;
     resetRequest();
   }
 
