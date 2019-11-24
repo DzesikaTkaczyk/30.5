@@ -12,11 +12,6 @@ class Posts extends React.Component {
     loadPostsByPage(initialPage || 1, postsPerPage);
   }
 
-  componentWillUnmount() {
-    const { resetRequest } = this.props;
-    resetRequest();
-  } //?
-
   loadPostsPage = (page) => {
     const { loadPostsByPage, postsPerPage } = this.props;
     loadPostsByPage(page, postsPerPage);
@@ -32,11 +27,13 @@ class Posts extends React.Component {
     return (
       <div>
         {(pending === true || success === null) && <Spinner />}
-        {pending === false && success === true && posts.length > 0 && 
+        {pending === false && success === true && posts.length > 0 && pagination === true && 
           <div>
             <PostsList posts={posts} />
             <Pagination pages={pages} onPageChange={loadPostsPage} initialPage={presentPage} />
           </div>}
+        {pending === false && success === true && posts.length > 0 &&
+          <div><PostsList posts={posts} /></div>}
         {pending === false && error !== null  && <Alert variant='error'>Connect error</Alert>}
         {pending === false && success === true && posts.length === 0 && <Alert variant='info'>No posts</Alert>}
       </div>
