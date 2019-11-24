@@ -8,8 +8,8 @@ import Pagination from '../../common/Pagination/Pagination';
 
 class Posts extends React.Component {
   componentDidMount() {
-    const { loadPostByPage, initialPage, postsPerPage } = this.props;
-    loadPostByPage(initialPage || 1, postsPerPage);
+    const { loadPostsByPage, initialPage, postsPerPage } = this.props;
+    loadPostsByPage(initialPage || 1, postsPerPage);
   }
 
   componentWillUnmount() {
@@ -59,7 +59,7 @@ Posts.propTypes = {
 
 Posts.defaultProps = {
   initialPage: 1,
-  postsPerPage: 10,
+  postsPerPage: 4,
   pagination: true
 };
 

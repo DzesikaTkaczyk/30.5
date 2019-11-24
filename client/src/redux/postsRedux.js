@@ -126,8 +126,8 @@ export const addPostRequest = (post) => {
 
 export const loadPostsByPageRequest = (page, postsPerPage) => {
   return async dispatch => {
-
     dispatch(startRequest());
+    
     try {
       const startAt = (page - 1) * postsPerPage;
       const limit = postsPerPage;
