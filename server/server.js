@@ -13,16 +13,19 @@ const app = express();
 
 //import routes
 const postRoutes = require('./routes/post.routes');
+const path = require('path');
 
 app.use(cors());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(express.static(path.join(__dirname, '/../client/build')));
 app.use('/api', postRoutes);
 app.use(helmet());
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 app.use(sanitize())
+
 
 
 // connects our back end code with the database
@@ -52,4 +55,8 @@ app.post('/login', function(req,res){
       res.send('Wrong Username Password Combination');
     }
   })
+});
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname + '/../client/build/index.html'));
 });
