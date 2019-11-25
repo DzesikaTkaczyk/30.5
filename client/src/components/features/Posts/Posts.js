@@ -27,6 +27,7 @@ class Posts extends React.Component {
     return (
       <div>
         {(pending === true || success === null) && <Spinner />}
+
         {pending === false && success === true && posts.length > 0 && pagination === true && 
           <div>
             <PostsList posts={posts} />
@@ -56,8 +57,8 @@ Posts.propTypes = {
 
 Posts.defaultProps = {
   initialPage: 1,
-  postsPerPage: 4,
-  pagination: true
+  postsPerPage: 10,
+  pagination: true,
 };
 
 export default Posts;
