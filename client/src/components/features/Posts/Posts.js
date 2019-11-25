@@ -27,7 +27,8 @@ class Posts extends React.Component {
     return (
       <div>
         {(pending === true || success === null) && <Spinner />}
-        {pending === false && success === true && posts.length > 0 && pagination === true &&
+
+        {pending === false && success === true && posts.length > 0 && pagination === true && 
           <div>
             <PostsList posts={posts} />
             <Pagination pages={pages} onPageChange={loadPostsPage} initialPage={presentPage} />
