@@ -1,10 +1,14 @@
 import React from 'react';
 import { PropTypes } from 'prop-types';
+import { FacebookProvider, Comments, Share } from 'react-facebook';
+import { withRouter } from 'react-router-dom';
 
 import Spinner from '../../common/Spinner/Spinner';
 import Alert from '../../common/Alert/Alert';
 import HtmlBox from "../../common/HtmlBox/HtmlBox";
 import PageTitle from '../../common/PageTitle/PageTitle';
+import { BASE_URL } from '../../../config';
+
 
 class SinglePost extends React.Component {
   componentDidMount() {
@@ -17,6 +21,7 @@ class SinglePost extends React.Component {
     const pending = request.pending;
     const success = request.success;
     const error = request.error;
+    const { location } = this.props;
 
     return (
       <div>
@@ -24,8 +29,17 @@ class SinglePost extends React.Component {
         {pending === false && success === true && post !== null && (
           <article>
             <PageTitle>{post.title}</PageTitle>
+            <FacebookProvider appId="3032843966729922">
+              <Share href={`${BASE_URL}/${location.pathname}`}>
+                {({ handleClick, loading }) => (
+                <button type="button" disabled={loading} onClick={handleClick}>Share</button>)}
+              </Share>
+            </FacebookProvider>
             <p>Author: {post.author} </p>
             <HtmlBox>{post.content}</HtmlBox>
+            <FacebookProvider appId="3032843966729922">
+              <Comments href={`${BASE_URL}/${location.pathname}`} />
+            </FacebookProvider>
           </article>)
         }
         {pending === false && error !== null  && <Alert variant='error'>{error}</Alert>}
@@ -47,4 +61,4 @@ SinglePost.propTypes = {
   loadPost: PropTypes.func.isRequired
 };
 
-export default SinglePost;
+export default withRouter(props => <SinglePost {...props}/>);
