@@ -26,6 +26,9 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 app.use(sanitize())
 
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname + '/../client/build/index.html'));
+});
 
 
 // connects our back end code with the database
@@ -57,6 +60,3 @@ app.post('/login', function(req,res){
   })
 });
 
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname + '/../client/build/index.html'));
-});
