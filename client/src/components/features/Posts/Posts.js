@@ -32,7 +32,7 @@ class Posts extends React.Component {
             <PostsList posts={posts} />
             <Pagination pages={pages} onPageChange={loadPostsPage} initialPage={presentPage} />
           </div>}
-        {pending === false && success === true && posts.length > 0 &&
+        {pending === false && success === true && posts.length > 0 && pagination === false &&
           <div><PostsList posts={posts} /></div>}
         {pending === false && error !== null  && <Alert variant='error'>Connect error</Alert>}
         {pending === false && success === true && posts.length === 0 && <Alert variant='info'>No posts</Alert>}
